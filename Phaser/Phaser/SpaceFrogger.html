@@ -15,7 +15,6 @@
 <body>
 
 <script type="text/javascript">
-   
     
     var config = {
         type: Phaser.AUTO,
@@ -64,7 +63,7 @@
         this.anims.create({
             key: 'spin_asteroid',
             frames: this.anims.generateFrameNumbers('asteroid', { start: 0, end: 29 }),
-            frameRate: 5,
+            frameRate: 15,
             repeat: -1
         });
 
@@ -74,7 +73,9 @@
             //child.setCollideWorldBounds(true);
             child.setScale(0.5);
             child.anims.play('spin_asteroid');
-            child.setVelocity(150);
+            child.setRotation(Math.random() * Math.floor(2 * Math.PI));
+
+            child.setVelocity(Math.random() * Math.floor(250), Math.random() * Math.floor(250));
 
         });
 
