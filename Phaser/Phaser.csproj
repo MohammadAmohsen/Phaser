@@ -67,14 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Phaser\assets\asteroid.png" />
     <Content Include="Phaser\assets\Goku.png" />
     <Content Include="Phaser\assets\bomb.png" />
     <Content Include="Phaser\assets\dude.png" />
     <Content Include="Phaser\assets\platform.png" />
     <Content Include="Phaser\assets\Road2.0.png" />
+    <Content Include="Phaser\assets\ship.png" />
     <Content Include="Phaser\assets\sky.png" />
+    <Content Include="Phaser\assets\space.png" />
     <Content Include="Phaser\assets\star.png" />
-    <Content Include="Phaser\part1.html" />
+    <Content Include="Phaser\SpaceFrogger.html" />
     <Content Include="Phaser\part10.html" />
     <Content Include="Phaser\part2.html" />
     <Content Include="Phaser\part3.html" />
