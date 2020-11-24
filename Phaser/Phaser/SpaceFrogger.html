@@ -36,6 +36,8 @@
 
     var asteroids;
     var ship;
+    var player;
+    var platforms;
 
     var game = new Phaser.Game(config);
 
@@ -44,15 +46,59 @@
         this.load.image('space', 'assets/space.png');
         this.load.image('ship', 'assets/ship.png')
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
+        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 
 
     }
 
     function create ()
     {
-
-
         this.add.image(0, 0, 'space').setOrigin(0, 0);
+
+
+        player = this.physics.add.sprite(100, 200, 'dude');
+        player.setDrag(50);
+        player.setAngularDrag(100);
+        player.setMaxVelocity(150);
+        console.log(player);
+
+        player.setCollideWorldBounds(true);
+
+        this.anims.create({
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'turn',
+            frames: [{ key: 'dude', frame: 4 }],
+            frameRate: 20
+        });
+
+        this.anims.create({
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'down',
+            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'up',
+            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        cursors = this.input.keyboard.createCursorKeys();
         
         asteroids = this.physics.add.group({
             key: 'asteroid',
@@ -78,15 +124,50 @@
 
         });
 
-
-        
-
+        this.physics.add.collider(player, platforms);
 
     }
 
     function update ()
     {
         this.physics.world.wrap(asteroids);
+
+        if (cursors.left.isDown) {
+            player.setAccelerationX(-100);
+            player.setVelocityX(-80);
+            // player.anims.play('left', true);
+        }
+        else if (cursors.right.isDown) {
+            player.setAccelerationX(100);
+            player.setVelocityX(80);
+            // player.anims.play('right', true);
+        }
+
+        if (cursors.up.isDown) {
+            player.setAccelerationY(-100);
+            player.setVelocityY(-80);
+        }
+        else if (cursors.down.isDown) {
+            player.setAccelerationY(100);
+            player.setVelocityY(80);
+        }
+
+    /*
+    if (cursors.up.isDown && player.body.touching.down)
+    {
+        player.setVelocityY(-330);
+    }
+    */
+    }
+
+    function hitBomb(player, bomb) {
+        this.physics.pause();
+
+        player.setTint(0xff0000);
+
+        player.anims.play('turn');
+
+        gameOver = true;
     }
 
 </script>
