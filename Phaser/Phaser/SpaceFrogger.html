@@ -38,6 +38,9 @@
     var ship;
     var player;
     var platforms;
+    var stars;
+    var score = 0;
+    var scoreText;
 
     var game = new Phaser.Game(config);
 
@@ -45,10 +48,9 @@
     {
         this.load.image('space', 'assets/space.png');
         this.load.image('ship', 'assets/ship.png')
+        this.load.image('star', 'assets/star.png');
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
-
-
     }
 
     function create ()
@@ -56,11 +58,10 @@
         this.add.image(0, 0, 'space').setOrigin(0, 0);
 
 
-        player = this.physics.add.sprite(100, 200, 'dude');
+        player = this.physics.add.sprite(600, 400, 'dude');
         player.setDrag(50);
         player.setAngularDrag(100);
         player.setMaxVelocity(150);
-        console.log(player);
 
         player.setCollideWorldBounds(true);
 
@@ -99,11 +100,17 @@
         });
 
         cursors = this.input.keyboard.createCursorKeys();
-        
+
+        stars = this.physics.add.group({
+            key: 'star',
+            repeat: 10,
+            setXY: { x: Math.random() * 200, y: Math.random() * 150, stepX: Math.random() * 250, stepY: Math.random() * 100 }
+        });
+
         asteroids = this.physics.add.group({
             key: 'asteroid',
-            repeat: (Math.random() * Math.floor(10)),
-            setXY: { x: (Math.random() * Math.floor(1280)), y: (Math.random() * Math.floor(448)), stepX: 70, stepY: 50 }
+            repeat: (Math.random() * Math.floor(7) + 10),
+            setXY: { x: (Math.random() * Math.floor(1280)), y: 0, stepX: 70, stepY: 0 }
         })
 
         this.anims.create({
@@ -117,14 +124,22 @@
 
             child.setBounceY(Phaser.Math.FloatBetween(1.05, 1.15));
             //child.setCollideWorldBounds(true);
-            child.setScale(0.5);
+            child.setScale(0.35);
             child.anims.play('spin_asteroid');
             child.setRotation(Math.random() * Math.floor(2 * Math.PI));
             child.setVelocity(Math.random() * Math.floor(250), Math.random() * Math.floor(250));
 
         });
 
+
+        scoreText = this.add.text(16, 16, 'SCORE: 0', { font: '20pt Arial', fill: 'blue'});
+
         this.physics.add.collider(player, platforms);
+        this.physics.add.collider(asteroids, platforms);
+        this.physics.add.collider(stars, platforms);
+
+        this.physics.add.overlap(player, stars, collectStar, null, this);
+        this.physics.add.collider(player, asteroids, hitAsteroid, null, this);
 
     }
 
@@ -160,14 +175,22 @@
     */
     }
 
-    function hitBomb(player, bomb) {
+    function hitAsteroid(player, asteroids) {
         this.physics.pause();
-
         player.setTint(0xff0000);
-
-        player.anims.play('turn');
-
+        //player.anims.play('turn');
         gameOver = true;
+        // player.setPosition(-100, 100);
+        this.scene.restart();
+    }
+
+    function collectStar(player, star) {
+        star.disableBody(true, true);
+
+        //  Add and update the score
+        score += 10;
+        scoreText.setText('Score: ' + score);
+
     }
 
 </script>
