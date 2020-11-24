@@ -18,8 +18,8 @@
     
     var config = {
         type: Phaser.AUTO,
-        width: 1280,
-        height: 448,
+        width: 1920,
+        height: 1080,
         physics: {
             default: 'arcade',
             arcade: {
@@ -41,7 +41,7 @@
 
     function preload()
     {
-        this.load.image('space', 'assets/space.png');
+        this.load.image('space', 'assets/space.jpg');
         this.load.image('ship', 'assets/ship.png')
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
 
@@ -53,7 +53,7 @@
 
 
         this.add.image(0, 0, 'space').setOrigin(0, 0);
-        
+
         asteroids = this.physics.add.group({
             key: 'asteroid',
             repeat: (Math.random() * Math.floor(10)),
@@ -69,18 +69,12 @@
 
         asteroids.children.iterate(function (child) {
 
-            child.setBounceY(Phaser.Math.FloatBetween(1.05, 1.15));
-            //child.setCollideWorldBounds(true);
             child.setScale(0.5);
             child.anims.play('spin_asteroid');
             child.setRotation(Math.random() * Math.floor(2 * Math.PI));
             child.setVelocity(Math.random() * Math.floor(250), Math.random() * Math.floor(250));
 
         });
-
-
-        
-
 
     }
 
