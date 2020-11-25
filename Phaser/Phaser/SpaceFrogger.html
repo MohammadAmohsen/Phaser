@@ -18,8 +18,8 @@
     
     var config = {
         type: Phaser.AUTO,
-        width: 1280,
-        height: 448,
+        width: 1920,
+        height: 1080,
         physics: {
             default: 'arcade',
             arcade: {
@@ -46,7 +46,7 @@
 
     function preload()
     {
-        this.load.image('space', 'assets/space.png');
+        this.load.image('space', 'assets/Space2.jpg');
         this.load.image('ship', 'assets/ship.png')
         this.load.image('star', 'assets/star.png');
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
@@ -151,22 +151,22 @@
 
         if (cursors.left.isDown) {
             player.setAccelerationX(-100);
-            player.setVelocityX(-80);
+            player.setVelocityX(-100);
             // player.anims.play('left', true);
         }
         else if (cursors.right.isDown) {
             player.setAccelerationX(100);
-            player.setVelocityX(80);
+            player.setVelocityX(100);
             // player.anims.play('right', true);
         }
 
         if (cursors.up.isDown) {
             player.setAccelerationY(-100);
-            player.setVelocityY(-80);
+            player.setVelocityY(-100);
         }
         else if (cursors.down.isDown) {
             player.setAccelerationY(100);
-            player.setVelocityY(80);
+            player.setVelocityY(100);
         }
 
     /*
