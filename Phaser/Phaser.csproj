@@ -78,6 +78,7 @@
     <Content Include="Phaser\assets\space.jpg" />
     <Content Include="Phaser\assets\Space2.jpg" />
     <Content Include="Phaser\assets\star.png" />
+    <Content Include="Phaser\assets\stars2.png" />
     <Content Include="Phaser\SpaceFrogger.html" />
     <Content Include="Phaser\part10.html" />
     <Content Include="Phaser\part2.html" />
