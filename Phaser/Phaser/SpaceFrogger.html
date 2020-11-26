@@ -49,7 +49,6 @@
         this.load.image('space', 'assets/Space2.jpg');
         this.load.image('ship', 'assets/ship.png')
         this.load.image('star', 'assets/stars2.png');
-        game.load.image('menu', 'assets/buttons/number-buttons-90x90.png', 270, 180);
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
@@ -60,17 +59,14 @@
         this.add.image(0, 0, 'space').setOrigin(0, 0);
 
 
-        player = this.physics.add.sprite(600, 400, 'dude');
-        player.setDrag(0);
+        player = this.physics.add.sprite(900, 850, 'dude');
+        player.setDrag(50);
         player.setAngularDrag(100);
         player.setMaxVelocity(150);
 
         player.setCollideWorldBounds(true);
 
-        stars = this.add.image(100, 100, 'star');
-
-        stars.setDisplaySize(.2);
-
+        //stars = this.add.image(100, 100, 'star');
 
         this.anims.create({
             key: 'left',
@@ -106,17 +102,18 @@
             repeat: -1
         });
 
+
         cursors = this.input.keyboard.createCursorKeys();
 
         //Stars1
         stars = this.physics.add.group({
             key: 'star',
-            repeat: 15,
-            setXY: { x: Math.random() * 200, y: Math.random() * 150, stepX: 70, stepY: 0 }
+            repeat: 5,
+            setXY: { x: 200, y: 250, stepX: 350, stepY: 0 }
         });
 
         stars.children.iterate(function (child) {
-            child.setScale(0.35);
+            child.setScale(0.15);
         });
 
 
@@ -145,7 +142,7 @@
         });
 
 
-        scoreText = this.add.text(16, 16, 'SCORE: 0', { font: '20pt Arial', fill: 'blue'});
+        scoreText = this.add.text(16, 16, 'SCORE: 0', { font: '20pt Arial', fill: 'purple'});
 
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(asteroids, platforms);
@@ -162,21 +159,19 @@
 
         if (cursors.left.isDown) {
             player.setAccelerationX(-150);
-            //player.setVelocityX(-100);
-            // player.anims.play('left', true);
+            player.setVelocityX(-100);
         }
         else if (cursors.right.isDown) {
             player.setAccelerationX(150);
-            //player.setVelocityX(100);
-            // player.anims.play('right', true);
+            player.setVelocityX(100);
         }
-        else if (cursors.up.isDown) {
+         if (cursors.up.isDown) {
             player.setAccelerationY(-150);
-            //player.setVelocityY(-100);
+           player.setVelocityY(-100);
         }
         else if (cursors.down.isDown) {
             player.setAccelerationY(150);
-            //player.setVelocityY(100);
+            player.setVelocityY(100);
         }
         else {
             player.setAccelerationY(0);
@@ -185,12 +180,6 @@
 
         player.setMaxVelocity(500);
 
-    /*
-    if (cursors.up.isDown && player.body.touching.down)
-    {
-        player.setVelocityY(-330);
-    }
-    */
     }
 
     function hitAsteroid(player, asteroids) {
@@ -211,7 +200,6 @@
 
 
     }
-
 </script>
 
 </body>
