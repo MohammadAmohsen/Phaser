@@ -61,7 +61,7 @@
 
 
         player = this.physics.add.sprite(600, 400, 'dude');
-        player.setDrag(50);
+        player.setDrag(0);
         player.setAngularDrag(100);
         player.setMaxVelocity(150);
 
@@ -135,7 +135,7 @@
 
         asteroids.children.iterate(function (child) {
 
-            child.setBounceY(Phaser.Math.FloatBetween(1.05, 1.15));
+            child.setBounce(Phaser.Math.FloatBetween(1.2, 1.3));
             //child.setCollideWorldBounds(true);
             child.setScale(0.35);
             child.anims.play('spin_asteroid');
@@ -161,24 +161,29 @@
         this.physics.world.wrap(asteroids);
 
         if (cursors.left.isDown) {
-            player.setAccelerationX(-100);
-            player.setVelocityX(-100);
+            player.setAccelerationX(-150);
+            //player.setVelocityX(-100);
             // player.anims.play('left', true);
         }
         else if (cursors.right.isDown) {
-            player.setAccelerationX(100);
-            player.setVelocityX(100);
+            player.setAccelerationX(150);
+            //player.setVelocityX(100);
             // player.anims.play('right', true);
         }
-
-        if (cursors.up.isDown) {
-            player.setAccelerationY(-100);
-            player.setVelocityY(-100);
+        else if (cursors.up.isDown) {
+            player.setAccelerationY(-150);
+            //player.setVelocityY(-100);
         }
         else if (cursors.down.isDown) {
-            player.setAccelerationY(100);
-            player.setVelocityY(100);
+            player.setAccelerationY(150);
+            //player.setVelocityY(100);
         }
+        else {
+            player.setAccelerationY(0);
+            player.setAccelerationX(0);
+        }
+
+        player.setMaxVelocity(500);
 
     /*
     if (cursors.up.isDown && player.body.touching.down)
@@ -198,11 +203,12 @@
     }
 
     function collectStar(player, star) {
-        star.disableBody(true, true);
+        star.setPosition(Math.random() * Math.floor(1920), Math.random() * Math.floor(1080))
 
         //  Add and update the score
         score += 10;
         scoreText.setText('Score: ' + score);
+
 
     }
 
