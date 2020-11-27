@@ -52,28 +52,28 @@
         this.load.audio('Dead', ["assets/how.mp3"]);
         this.load.audio('Theme', ["assets/Hollow.mp3"]);
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
-        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('dude', 'assets/ufo.png');
     }
 
     //test
     function create ()
     {
+        /*
         Theme = this.sound.add('Theme', { loop: true, volume: 1.5 });
         Sound = this.sound.add('Sound', { loop: false, volume: .25 });
-        Dead = this.sound.add('Dead', { loop: false, volume: .5 });
+        Dead = this.sound.add('Dead', { loop: false, volume: .2 });
         Theme.play();
-
+        */
         this.add.image(0, 0, 'space').setOrigin(0, 0);
 
-
-
         player = this.physics.add.sprite(900, 850, 'dude');
-        player.setDrag(50);
+        player.setDrag(450);
         player.setAngularDrag(100);
-        player.setMaxVelocity(150);
+        //player.setMaxVelocity(150);
         player.setCollideWorldBounds(true);
+        player.setScale(.07);
 
-
+        /*
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
@@ -107,7 +107,7 @@
             frameRate: 10,
             repeat: -1
         });
-
+        */
 
         cursors = this.input.keyboard.createCursorKeys();
 
@@ -163,33 +163,37 @@
         this.physics.world.wrap(asteroids);
 
         if (cursors.left.isDown) {
-            player.setAccelerationX(-150);
-            player.setVelocityX(-100);
+            player.setAccelerationX(-250);
+            //player.setVelocityX(-100);
         }
-        else if (cursors.right.isDown) {
-            player.setAccelerationX(150);
-            player.setVelocityX(100);
+         else if (cursors.right.isDown) {
+            player.setAccelerationX(250);
+           // player.setVelocityX(100);
         }
-         if (cursors.up.isDown) {
-            player.setAccelerationY(-150);
-           player.setVelocityY(-100);
+         else if (cursors.up.isDown) {
+            player.setAccelerationY(-250);
+           //player.setVelocityY(-100);
         }
-        else if (cursors.down.isDown) {
-            player.setAccelerationY(150);
-            player.setVelocityY(100);
-        }
+         else if (cursors.down.isDown) {
+            player.setAccelerationY(250);
+           // player.setVelocityY(100);
+         }
         else {
             player.setAccelerationY(0);
             player.setAccelerationX(0);
         }
+
+
 
         player.setMaxVelocity(500);
 
     }
 
     function hitAsteroid(player, asteroids) {
+        /*
         Theme.pause();
         Dead.play();
+        */
         this.physics.pause();
         player.setTint(0xff0000);
         gameOver = true;
@@ -198,7 +202,7 @@
     }
 
     function collectStar(player, star) {
-        Sound.play();
+        //Sound.play();
         star.setPosition(Math.random() * Math.floor(1920), Math.random() * Math.floor(1080))
 
         //  Add and update the score

@@ -77,6 +77,7 @@
     <Content Include="Phaser\assets\Space2.jpg" />
     <Content Include="Phaser\assets\stars2.png" />
     <Content Include="Phaser\assets\super-mario-death-sound-sound-effect.mp3" />
+    <Content Include="Phaser\assets\ufo.png" />
     <Content Include="Phaser\SpaceFrogger.html" />
     <Content Include="Phaser\part10.html" />
     <Content Include="Phaser\part2.html" />
