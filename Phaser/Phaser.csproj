@@ -68,17 +68,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Phaser\assets\asteroid.png" />
-    <Content Include="Phaser\assets\Goku.png" />
-    <Content Include="Phaser\assets\bomb.png" />
+    <Content Include="Phaser\assets\blackBackground.jpeg" />
     <Content Include="Phaser\assets\dude.png" />
-    <Content Include="Phaser\assets\platform.png" />
-    <Content Include="Phaser\assets\Road2.0.png" />
+    <Content Include="Phaser\assets\Hollow.mp3" />
+    <Content Include="Phaser\assets\how.mp3" />
+    <Content Include="Phaser\assets\Mario-coin-sound.mp3" />
     <Content Include="Phaser\assets\ship.png" />
-    <Content Include="Phaser\assets\sky.png" />
-    <Content Include="Phaser\assets\space.jpg" />
     <Content Include="Phaser\assets\Space2.jpg" />
-    <Content Include="Phaser\assets\star.png" />
     <Content Include="Phaser\assets\stars2.png" />
+    <Content Include="Phaser\assets\super-mario-death-sound-sound-effect.mp3" />
     <Content Include="Phaser\SpaceFrogger.html" />
     <Content Include="Phaser\part10.html" />
     <Content Include="Phaser\part2.html" />

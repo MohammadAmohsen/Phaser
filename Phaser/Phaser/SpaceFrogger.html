@@ -23,7 +23,6 @@
         physics: {
             default: 'arcade',
             arcade: {
-                //  gravity: { y: 10 },
                 debug: false
             }
         },
@@ -49,6 +48,9 @@
         this.load.image('space', 'assets/Space2.jpg');
         this.load.image('ship', 'assets/ship.png')
         this.load.image('star', 'assets/stars2.png');
+        this.load.audio('Sound', ["assets/Mario-coin-sound.mp3"]);
+        this.load.audio('Dead', ["assets/how.mp3"]);
+        this.load.audio('Theme', ["assets/Hollow.mp3"]);
         this.load.spritesheet('asteroid', 'assets/asteroid.png', { frameWidth: 85, frameHeight: 100 });
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
@@ -56,7 +58,13 @@
     //test
     function create ()
     {
+        Theme = this.sound.add('Theme', { loop: true, volume: 1.5 });
+        Sound = this.sound.add('Sound', { loop: false, volume: .25 });
+        Dead = this.sound.add('Dead', { loop: false, volume: .5 });
+        Theme.play();
+
         this.add.image(0, 0, 'space').setOrigin(0, 0);
+
 
 
         player = this.physics.add.sprite(900, 850, 'dude');
@@ -183,15 +191,18 @@
     }
 
     function hitAsteroid(player, asteroids) {
+        Theme.pause();
+        Dead.play();
         this.physics.pause();
         player.setTint(0xff0000);
         //player.anims.play('turn');
         gameOver = true;
         // player.setPosition(-100, 100);
-        this.scene.restart();
+        // this.scene.restart();
     }
 
     function collectStar(player, star) {
+        Sound.play();
         star.setPosition(Math.random() * Math.floor(1920), Math.random() * Math.floor(1080))
 
         //  Add and update the score
