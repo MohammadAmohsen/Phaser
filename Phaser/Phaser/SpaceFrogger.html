@@ -40,6 +40,7 @@
         var stars;
         var score = 0;
         var scoreText;
+        var space;
         var isPaused = false;
 
         var game = new Phaser.Game(config);
@@ -63,7 +64,7 @@
             Dead = this.sound.add('Dead', { loop: false, volume: .2 });
             Theme.play();
             */
-            this.add.image(0, 0, 'space').setOrigin(0, 0);
+            space = this.add.image(0, 0, 'space').setOrigin(0, 0);
 
             player = this.physics.add.sprite(900, 850, 'dude');
             player.setDrag(50);
@@ -185,6 +186,7 @@
             */
             this.physics.pause();
             player.setTint(0xff0000);
+            space.destroy();
             gameOver = true;
             // player.setPosition(-100, 100);
             // this.scene.restart();
