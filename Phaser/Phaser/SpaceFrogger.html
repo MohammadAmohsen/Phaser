@@ -41,12 +41,19 @@
     var score = 0;
     var scoreText;
     var isPaused = false;
+    var background;
+    var time;
+    var timeText;
+    var timedEvent;
+    var minutes;
+    var seconds;
 
     var game = new Phaser.Game(config);
 
     function preload()
     {
         this.load.image('space', 'assets/Space2.jpg');
+        this.load.image('died', 'assets/died.jpg');
         this.load.image('ship', 'assets/ship.png')
         this.load.image('star', 'assets/stars2.png');
         this.load.audio('Sound', ["assets/Mario-coin-sound.mp3"]);
@@ -59,56 +66,19 @@
     //test
     function create ()
     {
-        /*
         Theme = this.sound.add('Theme', { loop: true, volume: 1.5 });
         Sound = this.sound.add('Sound', { loop: false, volume: .25 });
         Dead = this.sound.add('Dead', { loop: false, volume: .2 });
         Theme.play();
-        */
-        this.add.image(0, 0, 'space').setOrigin(0, 0);
+        background = this.add.image(0, 0, 'space').setOrigin(0, 0);
 
         player = this.physics.add.sprite(900, 850, 'dude');
-        player.setDrag(50);
+        player.setDrag(0);
         player.setAngularDrag(100);
         //player.setMaxVelocity(150);
         player.setCollideWorldBounds(true);
         player.setScale(.07);
 
-        /*
-        this.anims.create({
-            key: 'left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'turn',
-            frames: [{ key: 'dude', frame: 4 }],
-            frameRate: 20
-        });
-
-        this.anims.create({
-            key: 'right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'down',
-            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
-            frameRate: 10,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'up',
-            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
-            frameRate: 10,
-            repeat: -1
-        });
-        */
 
         cursors = this.input.keyboard.createCursorKeys();
 
@@ -147,7 +117,8 @@
 
         });
 
-
+        timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onClockEvent, callbackScope: this, repeat: 1 }); 
+        timeText = this.add.text(16, 46, 'Timer: ', { fontSize: '20pt Spac3', fill: 'purple' });
         scoreText = this.add.text(16, 16, 'SCORE: 0', { font: '20pt Spac3', fill: 'purple'});
 
         this.physics.add.collider(player, platforms);
@@ -157,27 +128,31 @@
         this.physics.add.overlap(player, stars, collectStar, null, this);
         this.physics.add.collider(player, asteroids, hitAsteroid, null, this);
 
+        // time = game.time.totalElapsedSeconds();
+        //timeText = time;
     }
-    
+
     function update ()
     {
+        displayTimeElapsed();
+
         this.physics.world.wrap(asteroids);
 
         if (cursors.left.isDown) {
-            player.setAccelerationX(-150);
-            //player.setVelocityX(-100);
+            //player.setAccelerationX(-150);
+            player.setVelocityX(-175);
         }
          else if (cursors.right.isDown) {
-            player.setAccelerationX(150);
-            player.setVelocityX(100);
+            //player.setAccelerationX(150);
+            player.setVelocityX(175);
         }
-         else if (cursors.up.isDown) {
-            player.setAccelerationY(-150);
-           //player.setVelocityY(-100);
+          if (cursors.up.isDown) {
+            //player.setAccelerationY(-150);
+           player.setVelocityY(-175);
         }
          else if (cursors.down.isDown) {
-            player.setAccelerationY(250);
-           // player.setVelocityY(100);
+            //player.setAccelerationY(250);
+            player.setVelocityY(175);
         }
         else {
             player.setAccelerationY(0);
@@ -189,27 +164,27 @@
 
         }
         player.setMaxVelocity(500);
-        /*
-        this.input.keyboard.once('keydown_SPACE', function () {
-            player.setVelocityY(0);
-        });
-        */
+
     }
 
-    function hitAsteroid(player, asteroids) {
-        /*
+    function hitAsteroid(player, asteroid) {
         Theme.pause();
         Dead.play();
-        */
+        
+        background.destroy();
+        background = this.add.image(0, 0, 'died').setOrigin(0, 0);
+
         this.physics.pause();
-        player.setTint(0xff0000);
+        //space.setTint(0xff0000);
         gameOver = true;
+        score += Math.floor(time * 3);
+        alert("You died! Your Score is: " + score);
         // player.setPosition(-100, 100);
         // this.scene.restart();
     }
 
     function collectStar(player, star) {
-        //Sound.play();
+        Sound.play();
         star.setPosition(Math.random() * Math.floor(1920), Math.random() * Math.floor(1080))
 
         //  Add and update the score
@@ -217,6 +192,14 @@
         scoreText.setText('Score: ' + score);
 
 
+    }
+
+    function displayTimeElapsed() {
+        time = timedEvent.getElapsedSeconds();
+        let minutes = Math.floor(time / 60);
+        let seconds = Math.floor(time - (minutes * 60));
+
+        timeText.setText('Time 0' + minutes + ':' + seconds);
     }
 </script>
 

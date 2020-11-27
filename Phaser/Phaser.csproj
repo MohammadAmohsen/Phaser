@@ -68,8 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Phaser\assets\asteroid.png" />
-    <Content Include="Phaser\assets\blackBackground.jpeg" />
-    <Content Include="Phaser\assets\dude.png" />
+    <Content Include="Phaser\assets\died.jpg" />
     <Content Include="Phaser\assets\Hollow.mp3" />
     <Content Include="Phaser\assets\how.mp3" />
     <Content Include="Phaser\assets\Mario-coin-sound.mp3" />
