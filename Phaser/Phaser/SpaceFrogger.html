@@ -40,6 +40,7 @@
     var stars;
     var score = 0;
     var scoreText;
+    var isPaused = false;
 
     var game = new Phaser.Game(config);
 
@@ -67,7 +68,7 @@
         this.add.image(0, 0, 'space').setOrigin(0, 0);
 
         player = this.physics.add.sprite(900, 850, 'dude');
-        player.setDrag(450);
+        player.setDrag(50);
         player.setAngularDrag(100);
         //player.setMaxVelocity(150);
         player.setCollideWorldBounds(true);
@@ -157,36 +158,42 @@
         this.physics.add.collider(player, asteroids, hitAsteroid, null, this);
 
     }
-
+    
     function update ()
     {
         this.physics.world.wrap(asteroids);
 
         if (cursors.left.isDown) {
-            player.setAccelerationX(-250);
+            player.setAccelerationX(-150);
             //player.setVelocityX(-100);
         }
          else if (cursors.right.isDown) {
-            player.setAccelerationX(250);
-           // player.setVelocityX(100);
+            player.setAccelerationX(150);
+            player.setVelocityX(100);
         }
          else if (cursors.up.isDown) {
-            player.setAccelerationY(-250);
+            player.setAccelerationY(-150);
            //player.setVelocityY(-100);
         }
          else if (cursors.down.isDown) {
             player.setAccelerationY(250);
            // player.setVelocityY(100);
-         }
+        }
         else {
             player.setAccelerationY(0);
             player.setAccelerationX(0);
         }
+        if (cursors.space.isDown) {
+            player.setAcceleration(0);
+            player.setVelocity(0);
 
-
-
+        }
         player.setMaxVelocity(500);
-
+        /*
+        this.input.keyboard.once('keydown_SPACE', function () {
+            player.setVelocityY(0);
+        });
+        */
     }
 
     function hitAsteroid(player, asteroids) {
