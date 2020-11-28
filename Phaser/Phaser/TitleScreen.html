@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-
+    <link href="TitleScreenCSS.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
     <h1>Welcome to The Game</h1>
 
     <label for="Add"> Play The Game</label>
-    <button onclick="btnPlay" id="btnPlayGame">Try it</button>
+    <button onclick="btnPlay" id="btnPlayGame">play</button>
 
     <label for="Add">Leaderboards</label>
-    <button onclick="btnLB" id="btnLeader">Check It Out</button>
+    <button onclick="btnLB" id="btnLeader">leaderboards</button>
 
 
     <script>
@@ -22,7 +22,7 @@
         $(document).ready(function () { $('#btnLeader').on("click", btnLB); });
 
         function btnPlay() {
-            window.location.replace("Phaser/SpaceFrogger.html");
+            window.location.replace("SpaceFrogger.html");
         }
 
         function btnLB() {

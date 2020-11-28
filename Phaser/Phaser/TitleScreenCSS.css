@@ -1,0 +1,23 @@
+﻿body {
+    background-image: url('assets/ufo-illustration-rn-1366x768.jpg');
+    background-size: cover;
+}
+
+#btnPlayGame {
+    border-radius: 8px;
+    position: relative;
+    left: 800px;
+    top: 650px;
+    font-family: 'Spac3 Slim';
+    width: 75px;
+}
+
+
+#btnLeader {
+    border-radius: 8px;
+    position: relative;
+    left: 600px;
+    top: 750px;
+    font-family: 'Spac3 Slim';
+    width: 150px;
+}

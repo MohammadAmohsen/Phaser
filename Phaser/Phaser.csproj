@@ -67,16 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Phaser\assets\asteroid bg.jpg" />
+    <Content Include="Phaser\assets\asteroid-apophis-earth-2068-2764134.jpg" />
     <Content Include="Phaser\assets\asteroid.png" />
     <Content Include="Phaser\assets\died.jpg" />
     <Content Include="Phaser\assets\Hollow.mp3" />
     <Content Include="Phaser\assets\how.mp3" />
     <Content Include="Phaser\assets\Mario-coin-sound.mp3" />
+    <Content Include="Phaser\assets\pngtree-galaxy-with-meteor-shower-background-image_432338.jpg" />
     <Content Include="Phaser\assets\ship.png" />
+    <Content Include="Phaser\assets\simple-backgrounds-8.jpg" />
     <Content Include="Phaser\assets\Space2.jpg" />
     <Content Include="Phaser\assets\stars2.png" />
+    <Content Include="Phaser\assets\Sunset_Background_vector_2.jpg" />
     <Content Include="Phaser\assets\super-mario-death-sound-sound-effect.mp3" />
+    <Content Include="Phaser\assets\ufo-illustration-rn-1366x768.jpg" />
     <Content Include="Phaser\assets\ufo.png" />
+    <Content Include="Phaser\assets\Ufobackground.jpg" />
     <Content Include="Phaser\SpaceFrogger.html" />
     <Content Include="Phaser\part10.html" />
     <Content Include="Phaser\part2.html" />
@@ -88,7 +95,8 @@
     <Content Include="Phaser\part8.html" />
     <Content Include="Phaser\part9.html" />
     <Content Include="Phaser\testPhaser.html" />
-    <Content Include="Starter.html" />
+    <Content Include="Phaser\TitleScreen.html" />
+    <Content Include="Phaser\TitleScreenCSS.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
