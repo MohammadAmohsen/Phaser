@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="ExplanationCSS.css" rel="stylesheet" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <title></title>
+</head>
+<body>
+    <h1>Set Up </h1>
+
+    <div id="sections">
+        <a href="ExplanationHtml.html"> main</a>
+        <a href="Intro.html"> introduction</a>
+        <a href="Setup.html"> setup</a>
+        <a href="HowTo.html"> how to make your own game</a>
+        <a href="Final.html"> conclusion</a>
+        <a href="Sources.html"> sources</a>
+    </div>
+
+    <div id="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <script>
+
+        function openNav() {
+            $('#sidenav').css('width', '250px');
+        }
+
+        function closeNav() {
+            $('#sidenav').css('width', '0px');
+        }
+    </script>
+
+</body>
+</html>

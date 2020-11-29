@@ -104,7 +104,7 @@
 
                 child.setBounce(Phaser.Math.FloatBetween(1.2, 1.3));
                 //child.setCollideWorldBounds(true);
-                child.setScale(0.45);
+                child.setScale(0.50);
                 child.anims.play('spin_asteroid');
                 child.setRotation(Math.random() * Math.floor(2 * Math.PI));
                 child.setVelocity(Math.random() * Math.floor(250), Math.random() * Math.floor(250));
@@ -155,13 +155,22 @@
             Theme.pause();
             Dead.play();
             this.physics.pause();
-            player.setTint(0xff0000);
             space.destroy();
             gameOver = true;
             score += Math.floor(time) * 3;
-            alert("Your score is: " + score + "\nYour Time is: " + Math.floor(minutes) + ":" + Math.floor(seconds));
+            if (seconds < 10) {
+                alert("Your score is: " + score + "\nYour Time is: " + Math.floor(minutes) + ":0" + Math.floor(seconds));
+                score = 0;
+                this.scene.restart();
+                Dead.pause();
+            }
+            else {
+                alert("Your score is: " + score + "\nYour Time is: " + Math.floor(minutes) + ":" + Math.floor(seconds));
+                score = 0;
+                this.scene.restart();
+                Dead.pause();
+            }
             // player.setPosition(-100, 100);
-            // this.scene.restart();
         }
 
         function collectStar(player, star) {
@@ -173,10 +182,16 @@
             scoreText.setText('Score: ' + score);
         }
         function displayTime() {
-             time = timedEvent.getElapsedSeconds();
-             minutes = Math.floor(time / 60);
-             seconds = Math.floor(time % 60);
-            timeText.setText("Time: 0" + minutes + ":"+ seconds);
+            time = timedEvent.getElapsedSeconds();
+            minutes = Math.floor(time / 60);
+            seconds = Math.floor(time % 60);
+            
+            if (seconds < 10) {
+                timeText.setText("Time: 0" + minutes + ":0" + seconds);
+            }
+            else {
+                timeText.setText("Time: 0" + minutes + ":" + seconds);
+            }
         }
     </script>
 

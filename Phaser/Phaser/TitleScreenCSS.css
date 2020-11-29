@@ -6,7 +6,7 @@
 #btnPlayGame {
     border-radius: 8px;
     position: relative;
-    left: 800px;
+    left: 795px;
     top: 650px;
     font-family: 'Spac3 Slim';
     width: 75px;
@@ -16,8 +16,15 @@
 #btnLeader {
     border-radius: 8px;
     position: relative;
-    left: 600px;
+    left: 590px;
     top: 750px;
     font-family: 'Spac3 Slim';
     width: 150px;
+}
+#Title{
+    color:purple;
+    position: relative;
+    font-family: 'Spac3 Slim';
+    left: 705px;
+    font-size: 35pt;
 }

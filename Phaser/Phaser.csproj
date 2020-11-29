@@ -67,6 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tutorial\Console background.jpg" />
+    <Content Include="Tutorial\ExplanationCSS.css" />
+    <Content Include="Tutorial\ExplanationHtml.html" />
+    <Content Include="Tutorial\Final.html" />
+    <Content Include="Tutorial\HowTo.html" />
+    <Content Include="Tutorial\Intro.html" />
     <Content Include="Phaser\assets\asteroid bg.jpg" />
     <Content Include="Phaser\assets\asteroid-apophis-earth-2068-2764134.jpg" />
     <Content Include="Phaser\assets\asteroid.png" />
@@ -97,6 +103,8 @@
     <Content Include="Phaser\testPhaser.html" />
     <Content Include="Phaser\TitleScreen.html" />
     <Content Include="Phaser\TitleScreenCSS.css" />
+    <Content Include="Tutorial\Setup.html" />
+    <Content Include="Tutorial\Sources.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +119,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
