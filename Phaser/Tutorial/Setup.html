@@ -19,24 +19,92 @@
         <a href="Sources.html"> sources</a>
     </div>
 
-    <div id="sidenav">
+    <div id="sideNav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#Install" onclick="clickInstall()">>Installation </a>
+        <a href="#Create"  onclick="clickCreate()">Create A Project</a>
+        <a href="#Set">Set Up Your Code</a>
+        <a href="#Import">Import Phaser</a>
     </div>
 
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+    <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; Tutorial</span>
+
+    <div id="Install">
+        <h3>Step 1) Install Visual Studio 2017</h3>
+
+        <p1>
+            Navigate to <a href="https://visualstudio.microsoft.com/vs/older-downloads/">Visual Studio</a> to download Visual Studio 2017 for your OS.
+            <br />Once it’s installed, sign in or sign up for a Microsoft account
+            <br />and use that to sign in to the program.
+        </p1>
+        <img id="image1" src="ImagesTutorial/VS.PNG" />
+    </div>
+
+    <div id="Create">
+        <h3>Step 2) Create A Web Project</h3>
+
+        <p1>
+            Now that Visual Studio is installed, we are going to create an empty
+            <br />project that will allow us to start building our website.
+            <br />Navigate to File → New → Project or press CTRL + Shift + N.
+
+        </p1>
+        <img id="image1" src="ImagesTutorial/NewProject.PNG" />
+    </div>
+
+    <div id="Set">
+        <h3>Step 3) Set Up Your Code Area</h3>
+
+        <p1>
+            Now that Visual Studio is installed, we are going to create an empty
+            <br />project that will allow us to start building our website.
+            <br />Navigate to File → New → Project or press CTRL + Shift + N.
+
+        </p1>
+        <img id="image1" src="ImagesTutorial/NewProject.PNG" />
+    </div>
 
     <script>
+        $('#Install').hide();
+        $('#Create').hide();
+        $('#Set').hide();
+        $('#Import').hide();
+
 
         function openNav() {
-            $('#sidenav').css('width', '250px');
+            $('#sideNav').css('width', '250px');
         }
 
         function closeNav() {
-            $('#sidenav').css('width', '0px');
+            $('#sideNav').css('width', '0px');
+        }
+
+        function clickInstall() {
+            $('#Install').show();
+            $('#Create').hide();
+            $('#Set').hide();
+            $('#Import').hide();
+        }
+
+        function clickCreate() {
+            $('#Install').hide();
+            $('#Create').show();
+            $('#Set').hide();
+            $('#Import').hide();
+        }
+
+        function clickSet() {
+            $('#Install').hide();
+            $('#Create').hide();
+            $('#Set').show();
+            $('#Import').hide();
+        }
+
+        function clickImport() {
+            $('#Install').hide();
+            $('#Create').hide();
+            $('#Set').hide();
+            $('#Import').show();
         }
     </script>
 
