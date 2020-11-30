@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('Console background.jpg');
+    background-image: url('ImagesTutorial/Console background.jpg');
 }
 
 h1 {
@@ -131,4 +131,36 @@ a:hover{
     top:380px;
     height: 550px;
     width:  750px;
+}
+
+#image2 {
+    position: absolute;
+    left: 1150px;
+    top: 380px;
+    height: 550px;
+    width: 750px;
+}
+
+#image3 {
+    position: absolute;
+    left: 1150px;
+    top: 1050px;
+    height:550px;
+    width: 750px;
+}
+
+#image4 {
+    position: absolute;
+    left: 1250px;
+    top: 380px;
+    height: 400px;
+    width: 600px;
+}
+
+#image5 {
+    position: absolute;
+    left: 1250px;
+    top: 900px;
+    height: 650px;
+    width: 600px;
 }

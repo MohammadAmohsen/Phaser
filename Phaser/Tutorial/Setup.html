@@ -21,10 +21,10 @@
 
     <div id="sideNav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#Install" onclick="clickInstall()">>Installation </a>
+        <a href="#Install" onclick="clickInstall()"> Installation </a>
         <a href="#Create"  onclick="clickCreate()">Create A Project</a>
-        <a href="#Set">Set Up Your Code</a>
-        <a href="#Import">Import Phaser</a>
+        <a href="#Set"onclick="clickSet()">Set Up Your Cod</a>
+        <a href="#Import"onclick="clickImport()">Import Phaser</a>
     </div>
 
     <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; Tutorial</span>
@@ -49,19 +49,72 @@
             <br />Navigate to File → New → Project or press CTRL + Shift + N.
 
         </p1>
-        <img id="image1" src="ImagesTutorial/NewProject.PNG" />
+        <img id="image2" src="ImagesTutorial/NewProject.PNG" />
+
+        <p1>
+            <br />
+            <br />
+            <br />
+            <br /><br />
+            <br /><br />
+            <br /><br />
+            <br />
+            <br /><br />
+
+            Now, under the “installed” tab on the left hand side, choose Web and then
+            <br /> select the ASP.NET Web Application (.NET Framework) choice.
+            <br /> Give your project a unique name to remember it by, and click OK.
+            <br />  On the next page, choose Empty and simply click OK.
+
+        </p1>
+        <img id="image3" src="ImagesTutorial/VS2.PNG" />
     </div>
 
     <div id="Set">
         <h3>Step 3) Set Up Your Code Area</h3>
 
         <p1>
-            Now that Visual Studio is installed, we are going to create an empty
-            <br />project that will allow us to start building our website.
-            <br />Navigate to File → New → Project or press CTRL + Shift + N.
+            As of now, you don’t have any HTML files inside of your solution.
+            <br />In the Solution Explorer, we are going to right click on the project file that
+            <br />   we are currently working on.  This should be named whatever you entered
+            <br />   above under the Name option.  After right clicking, click Add and then scroll down
+            <br />  and click New HTML Page.  Enter in SpaceFrogger.html for the name.
+            <br /> Now you will be greeted with an almost completely empty HTML page.
+            <br />This page is simply the skeleton of the code we will be writing shortly.
 
         </p1>
-        <img id="image1" src="ImagesTutorial/NewProject.PNG" />
+        <img id="image4" src="ImagesTutorial/Phaser.PNG" />
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p1>
+            Above you can see the project we right click on to add an HTML file to
+            <br /> and below is the actual button to add the file.
+        </p1>>
+        <img id="image5" src="ImagesTutorial/phaser2.PNG" />
+    </div>
+
+    <div id="Import">
+
+        <p1>
+            Now that our file is set up and ready to edit, we will begin coding.  However, to use the Phaser.js library,
+            <br />we must first import the framework.  This is simply done by adding
+            <br /> "script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js">script" <br />
+            inside of the header between the two head and head tags. 
+            <br /> Now, inside of our two body tags, we will add a script tag and close it a few lines down. 
+            <br />Inside of these two tags is where we will begin adding all of our code.
+
+        </p1>
+
+
+
     </div>
 
     <script>

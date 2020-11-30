@@ -73,7 +73,10 @@
     <Content Include="Tutorial\Final.html" />
     <Content Include="Tutorial\HowTo.html" />
     <Content Include="Tutorial\ImagesTutorial\NewProject.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\Phaser.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\phaser2.PNG" />
     <Content Include="Tutorial\ImagesTutorial\VS.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\VS2.PNG" />
     <Content Include="Tutorial\Intro.html" />
     <Content Include="Phaser\assets\asteroid bg.jpg" />
     <Content Include="Phaser\assets\asteroid-apophis-earth-2068-2764134.jpg" />
