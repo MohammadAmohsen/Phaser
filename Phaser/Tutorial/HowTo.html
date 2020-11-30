@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <link href="ExplanationCSS.css" rel="stylesheet" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
     <title></title>
 </head>
 <body>
-    <h1>Tutorial Project </h1>
+    <h1>How To </h1>
 
     <div id="sections">
         <a href="ExplanationHtml.html"> main</a>
@@ -30,9 +32,261 @@
         <a href="#Keystrokes" onclick="clickKeystrokes()"> 9)Defining our keystrokes </a>
         <a href="#Time" onclick="clickTime()"> 10) Adding Time </a>
         <a href="#Finished" onclick="clickFinished()"> 11) That's It! </a>
-
-
     </div>
+
+    <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; Tutorial</span>
+
+
+    <div id="CreatePhaser">
+        <h3>Step 1) Creating the Phaser scene </h3>
+
+        <p1>
+            The first thing you have to do when making a Phaser game is creating
+            <br />the skeleton of the code. Every Phaser game has a basic skeleton
+            <br /> of code that is required to run the game.
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            This is added in between our two script tags in between the two body
+            <br />  tags.  As you can see, we declare the ``config`` variable and assign type to Phaser.AUTO,
+            <br /> which selects our renderer for us (WebGL or Canvas), sets the game’s screen width to 800px by 600px
+            <br /> and provides function names for each of the preload, create, and update, functions.
+            <br />These functions must be designed ourselves, and in this case we will simply name them preload, update, and create also.
+            <br />
+            <br />
+            The preload function executes code that once finished will then lead to the top of the create function.
+            <br />The create function is executed, and then phaser executes the update() function at a high speed
+            <br />to allow for actions to occur as the game plays out.
+
+        </p1>
+        <img id="image6" src="ImagesTutorial/phasercode.PNG" />
+    </div>
+
+    <div id="Preloading">
+        <h3>
+            Step 2) Preloading our assets.
+        </h3>
+
+        <p1>
+            First we will need to download our assets from the internet.
+            <br /> Once you download this zip, unzip it and drag and drop the assets folder
+            <br />on top of the project file you have open in Visual Studio.
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            The load.image function works by taking a key and an asset file location.
+            <br />The spritesheet load function has an extra parameter that declares the width and height
+            <br />of each frame from inside of our asteroid sprite sheet.
+            <br />Each frame then gets given a 0 based index in the spritesheet.
+
+
+            <br />
+            <br />
+            Because we will want to reference some of these assets later,
+            <br />we will also define the following variables on the same scope that our functions
+            <br />are defined at (this is normally right underneath the definition of the config variable)
+
+        </p1>
+        <img id="image7" src="ImagesTutorial/preload.PNG" />
+    </div>
+
+    <script>
+        $('#CreatePhaser').show();
+        $('#Preloading').hide();
+        $('#Scene').hide();
+        $('#Progress').hide();
+        $('#AddAssets').hide();
+        $('#AddAnimations').hide();
+        $('#Collisions').hide();
+        $('#Collider').hide();
+        $('#Keystrokes').hide();
+        $('#Time').hide();
+        $('#Finished').hide();
+
+
+        function openNav() {
+            $('#sideNav').css('width', '250px');
+        }
+
+        function closeNav() {
+            $('#sideNav').css('width', '0px');
+        }
+
+        function clickCreatePhaser() {
+            $('#CreatePhaser').show();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickPreload() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').show();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickScene() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').show();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickProgress() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').show();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickAddAssets() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').show();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickAddAnimations() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').show();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickCollisions() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').show();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickCollider() {
+            $('#CreatePhaser').show();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').show();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickKeystrokes() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').show();
+            $('#Time').hide();
+            $('#Finished').hide();
+        }
+
+        function clickTime() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').show();
+            $('#Finished').hide();
+        }
+
+        function clickFinished() {
+            $('#CreatePhaser').hide();
+            $('#Preloading').hide();
+            $('#Scene').hide();
+            $('#Progress').hide();
+            $('#AddAssets').hide();
+            $('#AddAnimations').hide();
+            $('#Collisions').hide();
+            $('#Collider').hide();
+            $('#Keystrokes').hide();
+            $('#Time').hide();
+            $('#Finished').show();
+        }
+
+    </script>
 
 </body>
 </html>

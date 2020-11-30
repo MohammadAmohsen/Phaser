@@ -75,6 +75,8 @@
     <Content Include="Tutorial\ImagesTutorial\NewProject.PNG" />
     <Content Include="Tutorial\ImagesTutorial\Phaser.PNG" />
     <Content Include="Tutorial\ImagesTutorial\phaser2.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\phasercode.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\preload.PNG" />
     <Content Include="Tutorial\ImagesTutorial\VS.PNG" />
     <Content Include="Tutorial\ImagesTutorial\VS2.PNG" />
     <Content Include="Tutorial\Intro.html" />

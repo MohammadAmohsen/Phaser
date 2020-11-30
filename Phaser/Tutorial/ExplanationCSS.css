@@ -164,3 +164,19 @@ a:hover{
     height: 650px;
     width: 600px;
 }
+
+#image6 {
+    position: absolute;
+    left: 1150px;
+    top: 450px;
+    height: 550px;
+    width: 700px;
+}
+
+#image7 {
+    position: absolute;
+    left: 1150px;
+    top: 450px;
+    height: 450px;
+    width: 850px;
+}

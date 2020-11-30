@@ -16,13 +16,22 @@
     <button onclick="btnLB" id="btnLeader">leaderboards</button>
 
 
+    <input type="text" placeholder= "name of your alien" id="nameText" />
+
+
     <script>
 
         $(document).ready(function () { $('#btnPlayGame').on("click", btnPlay); });
         $(document).ready(function () { $('#btnLeader').on("click", btnLB); });
 
         function btnPlay() {
-            window.location.replace("SpaceFrogger.html");
+            if ($('#nameText').val() == "") {
+                alert("Enter A Name Bitch");
+            }
+            else {
+                localStorage.setItem("Name", $('#nameText').val());
+                window.location.replace("SpaceFrogger.html");
+            }
         }
 
         function btnLB() {
