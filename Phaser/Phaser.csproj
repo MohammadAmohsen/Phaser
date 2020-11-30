@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Phaser\assets\Leaderboard.html" />
     <Content Include="Tutorial\ImagesTutorial\Console background.jpg" />
     <Content Include="Tutorial\ExplanationCSS.css" />
     <Content Include="Tutorial\ExplanationHtml.html" />

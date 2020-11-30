@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
 
         var config = {
@@ -60,12 +60,12 @@
         }
 
         function create() {
-            
+
             Theme = this.sound.add('Theme', { loop: true, volume: 1.5 });
             Sound = this.sound.add('Sound', { loop: false, volume: .25 });
             Dead = this.sound.add('Dead', { loop: false, volume: .2 });
             Theme.play();
-            
+
             space = this.add.image(0, 0, 'space').setOrigin(0, 0);
 
             player = this.physics.add.sprite(900, 850, 'dude');
@@ -124,7 +124,7 @@
 
             timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onClockEvent, callbackScope: this, repeat: 1 });
 
-            
+
         }
 
         function update() {
@@ -158,6 +158,27 @@
             space.destroy();
             gameOver = true;
             score += Math.floor(time) * 3;
+
+            var strURL = "https://localhost:44356/api/gamedata";
+            var postData = "playername=" + localStorage.getItem('Name') + "&score=" + score + "&timeplayedseconds=" + (Math.floor(timedEvent.getElapsedSeconds()));
+
+            // Make an AJAX request and display the response in the appropriate div.
+            $.ajax({
+                type: "POST",
+                url: strURL,
+                contentType: "application/x-www-form-urlencoded",   // set the type of data sent in the request to the Web API
+                dataType: "text/plain",                                   // set the response data type expected from the Web API
+                data: postData,                                     // set the data that will be sent to the Web API
+                success: function (data) {                          // set callback function used to update the page
+                    alert(data);                       // JQuery passes the object returned by the Web API to your callback function.
+                },
+                error: function (req, status, error) {          // sets the error callback function used when an error occurs.
+                    alert("Error: " + req.responseText + " | " + status + " | " + error);
+                }
+
+            });
+
+
             if (seconds < 10) {
                 alert("Your score is: " + score + "\nYour Time is: " + Math.floor(minutes) + ":0" + Math.floor(seconds));
                 score = 0;
@@ -170,6 +191,8 @@
                 this.scene.restart();
                 Dead.pause();
             }
+
+
             // player.setPosition(-100, 100);
         }
 
@@ -185,7 +208,7 @@
             time = timedEvent.getElapsedSeconds();
             minutes = Math.floor(time / 60);
             seconds = Math.floor(time % 60);
-            
+
             if (seconds < 10) {
                 timeText.setText("Time: 0" + minutes + ":0" + seconds);
             }
