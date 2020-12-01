@@ -16,8 +16,9 @@
     <button onclick="btnLB" id="btnLeader">leaderboards</button>
 
 
-    <input type="text" placeholder= "name of your alien" id="nameText" />
+    <input type="text" placeholder="name of your alien" id="nameText" />
 
+    <div id="display"></div>
 
     <script>
         //button a
@@ -35,8 +36,26 @@
         }
 
         function btnLB() {
-            window.location.replace("Phaser/SpaceFrogger.html");
+            //window.location.replace("Phaser/SpaceFrogger.html");
+            var strURL = "https://localhost:44356/api/gamedata";    // URL of the Web Service followed by the name of the Web Method
+
+            // Make an AJAX request and display the response in the appropriate div.
+            $.ajax({
+                type: "GET",
+                url: strURL,
+                dataType: "text/plain",                               // set the data type expected from the Web API's response.                                 
+                success: function (data) {                      // set callback function used to update the page.
+                    $("#display").text(data);                  // JQuery passes the object returned by the Web API to your callback function.
+                },
+                error: function (req, status, error) {          // sets the error callback function used when an error occurs.
+                    alert(req.responseText);
+                }
+
+            });
+
         }
+
+
 
     </script>
 </body>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+
+    <div id="leaderBoard"></div>
+    <script>
+        var request = $.ajax({
+            url: '',
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8'
+        });
+
+        request.done(function (data) {
+            // your success code here
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            // your failure code here
+        });
+    </script>
+</body>
+</html>
