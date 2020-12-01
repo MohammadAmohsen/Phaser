@@ -220,3 +220,35 @@ a:hover{
     height: 350px;
     width: 700px;
 }
+
+
+#image13 {
+    position: absolute;
+    left: 1100px;
+    top: 430px;
+    height: 450px;
+    width: 800px;
+}
+#image14 {
+    position: absolute;
+    left: 1230px;
+    top: 450px;
+    height: 450px;
+    width: 700px;
+}
+
+#image15 {
+    position: absolute;
+    left: 1110px;
+    top: 450px;
+    height: 450px;
+    width: 650px;
+}
+
+#image16 {
+    position: absolute;
+    left: 1210px;
+    top: 450px;
+    height: 450px;
+    width: 700px;
+}

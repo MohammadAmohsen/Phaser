@@ -214,6 +214,101 @@
 
     </div>
 
+    <div id="Collider">
+        <h3>
+            Step 8) Defining our collider functions
+        </h3>
+
+        <p1>
+            <br />Here we define what happens when a player and asteroid collide
+            <br />and when a player and star collide.  For player and asteroid
+            <br />collisions we pause the theme song, play the death song, and
+            <br />end the simulation.  Then we determine what the player’s score
+            <br />should be arbitrarily
+            <br />
+            <br />
+            <br />When a player and star collide, we play the ``Sound`` variable
+            <br />which contains the star collection noise.  We then set the position
+            <br />of that star somewhere else so that the player can collect it again.
+            <br />We also increment their score by some arbitrary amount (10)
+            <br />and update the score text accordingly.
+
+
+        </p1>
+        <img id="image13" src="ImagesTutorial/colliders.PNG" />
+
+    </div>
+
+
+    <div id="Keystrokes">
+        <h3>
+            9)Defining our keystrokes
+        </h3>
+
+        <p1>
+            <br />Now that everything is created, we need to define our update function.
+            <br />This function serves to act as an area where listener-like code is created.
+            <br />In essence, code that needs to know what is happening all the time.
+            <br />
+            <br />
+            <br />
+            <br /> Here we tell the physics engine to run our displayTime function,
+            <br /> wrap the asteroids group around the map instead of bumping into the edges,
+            <br />and what to do on keypress.
+
+            <br />
+            <br />Phaser made it easy to do this, as when we defined our ``cursors`` variable
+            <br />in the create() method, it automatically defines keys easily for us to use here.
+            <br />We simply say that if a given key is being pressed, move in the respective location.
+            <br />We also want the space key to stop the player altogether as a brake.
+
+
+        </p1>
+        <img id="image14" src="ImagesTutorial/time.PNG" />
+
+    </div>
+
+    <div id="Time">
+        <h3>
+            10) Finally, we need to define our displayTime() function.
+        </h3>
+
+        <p1>
+            <br />Here we do a little math on the timedEvent object
+            <br />to get elapsed seconds and display that text in a
+            <br />recognizable format of minutes:seconds on our timeText variable.
+
+
+        </p1>
+        <img id="image15" src="ImagesTutorial/ActualTime.PNG" />
+
+    </div>
+
+
+
+    <div id="Finished">
+        <h3>
+            11) That's It!
+        </h3>
+
+        <p1>
+            <br />Run your game by clicking the green arrow at the top of Visual Studio.
+            <br />You should see that the character now moves, asteroids of random sizes
+            <br />spin and fly around, bouncing off of each other and wrapping around
+            <br />the game’s map.  Music is playing and you should hear sounds
+            <br /> when collecting stars. The score should be updated with each star collected,
+            <br /> and the clock continually counting upwards. When you die,
+            <br /> your final score is tabulated and the death music triggers.
+            <br />
+            <br />That’s it! You successfully made a game with a JavaScript framework.
+
+
+
+        </p1>
+        <img id="image16" src="ImagesTutorial/gamepic.PNG" />
+
+    </div>
+
 
     <script>
         $('#CreatePhaser').show();
@@ -336,7 +431,7 @@
         }
 
         function clickCollider() {
-            $('#CreatePhaser').show();
+            $('#CreatePhaser').hide();
             $('#Preloading').hide();
             $('#Scene').hide();
             $('#Progress').hide();

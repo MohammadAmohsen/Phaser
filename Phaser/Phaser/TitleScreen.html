@@ -7,8 +7,7 @@
     <title></title>
 </head>
 <body>
-    <div id="Title">escape from earth</div>
-
+    <div id="Title"><a href="/Tutorial/ExplanationHtml.html">escape from earth</div> </a>
     <label for="Add"> Play The Game</label>
     <button onclick="btnPlay" id="btnPlayGame">play</button>
 
@@ -27,7 +26,7 @@
 
         function btnPlay() {
             if ($('#nameText').val() == "") {
-                alert("Enter A Name Bitch");
+                alert("Enter A Name Please");
             }
             else {
                 localStorage.setItem("Name", $('#nameText').val());
@@ -43,7 +42,7 @@
             $.ajax({
                 type: "GET",
                 url: strURL,
-                dataType: "text/plain",                               // set the data type expected from the Web API's response.                                 
+                dataType: "text/plain",                               // set the data type expected from the Web API's response.
                 success: function (data) {                      // set callback function used to update the page.
                     $("#display").text(data);                  // JQuery passes the object returned by the Web API to your callback function.
                 },
