@@ -89,7 +89,7 @@
 
             asteroids = this.physics.add.group({
                 key: 'asteroid',
-                repeat: (Math.random() * Math.floor(7) + 10),
+                repeat: (Math.random() * Math.floor(8) + 10),
                 setXY: { x: (Math.random() * Math.floor(1280)), y: 0, stepX: 70, stepY: 0 }
             })
 
@@ -101,14 +101,13 @@
             });
 
             asteroids.children.iterate(function (child) {
-
                 child.setBounce(Phaser.Math.FloatBetween(1.2, 1.3));
                 //child.setCollideWorldBounds(true);
-                child.setScale(0.50);
+                child.setScale(Phaser.Math.FloatBetween(0.25, 0.75));
                 child.anims.play('spin_asteroid');
                 child.setRotation(Math.random() * Math.floor(2 * Math.PI));
-                child.setVelocity(Math.random() * Math.floor(250), Math.random() * Math.floor(250));
-
+                child.setVelocity(Math.random() * Math.floor(300), Math.random() * Math.floor(300));
+                child.setMaxVelocity(500, 500)
             });
 
 
@@ -170,10 +169,8 @@
                 dataType: "text/plain",                                   // set the response data type expected from the Web API
                 data: postData,                                     // set the data that will be sent to the Web API
                 success: function (data) {                          // set callback function used to update the page
-                    alert(data);                       // JQuery passes the object returned by the Web API to your callback function.
                 },
                 error: function (req, status, error) {          // sets the error callback function used when an error occurs.
-                    alert("Error: " + req.responseText + " | " + status + " | " + error);
                 }
 
             });
