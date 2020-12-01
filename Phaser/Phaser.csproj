@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tutorial\ImagesTutorial\animations.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\assets.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\collisions.PNG" />
     <Content Include="Tutorial\ImagesTutorial\Console background.jpg" />
     <Content Include="Tutorial\ExplanationCSS.css" />
     <Content Include="Tutorial\ExplanationHtml.html" />
@@ -77,6 +80,8 @@
     <Content Include="Tutorial\ImagesTutorial\phaser2.PNG" />
     <Content Include="Tutorial\ImagesTutorial\phasercode.PNG" />
     <Content Include="Tutorial\ImagesTutorial\preload.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\preloadphaser.PNG" />
+    <Content Include="Tutorial\ImagesTutorial\scene.PNG" />
     <Content Include="Tutorial\ImagesTutorial\VS.PNG" />
     <Content Include="Tutorial\ImagesTutorial\VS2.PNG" />
     <Content Include="Tutorial\Intro.html" />

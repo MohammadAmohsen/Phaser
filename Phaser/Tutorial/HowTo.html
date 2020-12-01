@@ -95,20 +95,125 @@
             <br />
             <br />
             The load.image function works by taking a key and an asset file location.
-            <br />The spritesheet load function has an extra parameter that declares the width and height
-            <br />of each frame from inside of our asteroid sprite sheet.
+            <br />The spritesheet load function has an extra parameter that declares
+            <br />the width and height of each frame from inside of our asteroid sprite sheet.
             <br />Each frame then gets given a 0 based index in the spritesheet.
 
 
             <br />
             <br />
             Because we will want to reference some of these assets later,
-            <br />we will also define the following variables on the same scope that our functions
-            <br />are defined at (this is normally right underneath the definition of the config variable)
+            <br />we will also define the following variables on the same scope
+            <br />that our functions are defined at.
 
         </p1>
         <img id="image7" src="ImagesTutorial/preload.PNG" />
+        <img id="image8" src="ImagesTutorial/preloadphaser.PNG" />
+
     </div>
+
+    <div id="Scene">
+        <h3>
+            Step 3) Create the scene
+        </h3>
+
+        <p1>
+            Now that we have the assets loaded and the variables declared (but not defined),
+            <br />we will want to begin adding the assets to our scene.
+
+            <br />
+            <br />
+            <br />  This code adds the given sounds (specified by their key declared in preload)
+            <br />and sets their volume, as well as playing the theme.  We also designate the space
+            <br />variable to the image loaded we titled `space`. Because phaser sets the anchor
+            <br />point of every image at it’s center, we want to specify the origin as (0,0), the top left,
+            <br />to make the image properly cover the entire game screen.
+
+
+
+
+        </p1>
+        <img id="image9" src="ImagesTutorial/scene.PNG" />
+
+    </div>
+
+    <div id="Progress">
+        <h3>
+            Step 4) Check Your Progress
+        </h3>
+
+        <p1>
+            <br />Now that we’ve added a decent amount of code, let’s try to load the pag
+            <br />
+            <br />At this point, you should see only the space background, and hear the theme song playing.
+        </p1>
+    </div>
+
+    <div id="AddAssets">
+        <h3>
+            Step 5) Check Your Progress
+        </h3>
+
+        <p1>
+            <br /> The cursors variable is defined by using phasers keyboard input function.
+            <br />With stars, we define a group of them where their image key is `star`,
+            <br />we create 5 of them, and set their X, Y position with a space between
+            <br />each member of the group, and individually set the scaleof the star’s sprite
+            <br /> to 15% of what it’s image dimensions are.
+            <br />
+            <br />
+            <br />
+            <br /> For our asteroids we add the `asteroid` spritesheet as the image,
+            <br />create a random number between 7 and 17, and set their locations
+            <br />to any random location inside of the play area.
+            <br />
+            <br />
+            <br />
+            <br />Now we create an animation object for the asteroid, but don’t start the animation yet.
+            <br />We designate a key ‘spin_asteroid` to our animation.  We also have to define the frames
+            <br />using Phaser’s anims.generateFrameNumbers function, where we define the image as
+            <br />being of key ‘asteroid’ starting at the first frame, and ending at the last.
+            <br />The framerate of our animation is set to 15, so we will see 15 images per second (the whole
+            <br />animation will then only run for 2 seconds before looping). Then we designate
+            <br /> it to loop infinitely, specified by repeat: -1.
+
+
+        </p1>
+        <img id="image10" src="ImagesTutorial/assets.PNG" />
+
+    </div>
+
+
+    <div id="AddAnimations">
+        <h3>
+            Step 6) Adding Animations
+        </h3>
+
+        <p1>
+            <br /> Here we set up everything we need to get our asteroids moving,
+            <br /> bouncing, animated, and moving in different directions.
+
+
+        </p1>
+        <img id="image11" src="ImagesTutorial/animations.PNG" />
+
+    </div>
+
+    <div id="Collisions">
+        <h3>
+            Step 7)  Defining collisions between physics groups.
+        </h3>
+
+        <p1>
+            <br />And finally here at the end of our create function,
+            <br />we add some score text, a timer, and add colliders and
+            <br />overlaps between physics objects we defined above.
+
+        </p1>
+        <img id="image12" src="ImagesTutorial/collisions.PNG" />
+
+    </div>
+
 
     <script>
         $('#CreatePhaser').show();

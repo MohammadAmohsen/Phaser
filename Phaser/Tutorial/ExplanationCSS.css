@@ -176,7 +176,47 @@ a:hover{
 #image7 {
     position: absolute;
     left: 1150px;
-    top: 450px;
+    top: 400px;
+    height: 400px;
+    width: 800px;
+}
+
+#image8 {
+    position: absolute;
+    left: 1150px;
+    top: 950px;
+    height: 700px;
+    width: 800px;
+}
+
+#image9 {
+    position: absolute;
+    left: 1250px;
+    top: 380px;
     height: 450px;
-    width: 850px;
+    width: 700px;
+}
+
+#image10 {
+    position: absolute;
+    left: 1200px;
+    top: 430px;
+    height: 450px;
+    width: 700px;
+}
+
+#image11 {
+    position: absolute;
+    left: 1200px;
+    top: 430px;
+    height: 450px;
+    width: 700px;
+}
+
+#image12 {
+    position: absolute;
+    left: 1100px;
+    top: 430px;
+    height: 350px;
+    width: 700px;
 }
